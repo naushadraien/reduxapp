@@ -1,6 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 export const Navbar = () => {
+    //Here useSelector is a hook to select the state
+    // const state = useSelector(state => state.amount)
+
+    //if our state has many variables and we want to use only one variable like amount then we use amount instead of state: const state as const amount
+    const amount = useSelector(state => state.amount)
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -19,7 +25,8 @@ export const Navbar = () => {
                             </li>
                         </ul>
                         <div>
-                            <button disabled={true} className="btn btn-primary">Your Balance: 10000</button>
+                            {/* Here amount is initially is 0 because we assigned state=0 in amountReducer.js  */}
+                            <button disabled={true} className="btn btn-primary">Your Balance: {amount}</button>
                         </div>
                     </div>
                 </div>
